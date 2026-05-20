@@ -1,6 +1,6 @@
 一个基于 Sepolia 区块链俄罗斯方块游戏.
 
-核心玩法： 玩家在浏览器玩俄罗斯方块，根据游戏表现获得链上 ERC-1155 NFT 奖励（刀、手枪、炸弹）。获得的 NFT 可以在链上市场用 GameToken 上架交易，GameToken 与 ETH 之间可通过 Uniswap 互相兑换。
+核心玩法： 玩家在浏览器玩俄罗斯方块，根据游戏表现获得奖励（刀、手枪、炸弹）, 并将道具上架到市场合约进行交易。获得的 NFT 可以在链上市场用 GameToken 上架交易，GameToken 与 ETH 之间可通过 Uniswap 互相兑换。
 
 
 # GameNFT — 项目概述
