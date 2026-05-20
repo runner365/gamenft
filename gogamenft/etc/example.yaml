@@ -1,0 +1,124 @@
+# config/config.yaml
+server:
+  host: "0.0.0.0"
+  port: 8080
+  env: "development"
+  read_timeout: 10s
+  write_timeout: 10s
+  idle_timeout: 60s
+  graceful_shutdown_timeout: 30s
+  
+  cors:
+    allowed_origins:
+      - "http://localhost:3000"
+      - "http://127.0.0.1:3000"
+      - "http://localhost:5173"
+      - "http://127.0.0.1:5173"
+      - "https://yourdomain.com"
+    allowed_methods:
+      - "GET"
+      - "POST"
+      - "PUT"
+      - "DELETE"
+      - "OPTIONS"
+    allowed_headers:
+      - "Accept"
+      - "Authorization"
+      - "Content-Type"
+      - "X-CSRF-Token"
+    allow_credentials: true
+    max_age: 300
+
+database:
+  host: "localhost"
+  port: 5432
+  user: "admin1"
+  password: "showmethemoney"
+  name: "postgres"
+  sslmode: "disable"
+  max_open_conns: 25
+  max_idle_conns: 5
+  conn_max_lifetime: 5m
+  conn_max_idle_time: 5m
+  log_level: "warn"
+  slow_threshold: 200ms
+
+redis:
+  addr: "localhost:6379"
+  password: ""
+  db: 0
+  pool_size: 10
+  min_idle_conns: 2
+  max_retries: 3
+  dial_timeout: 5s
+  read_timeout: 3s
+  write_timeout: 3s
+  cache_ttl: 5m
+  session_ttl: 24h
+  lock_ttl: 10s
+
+ethereum:
+  rpc_endpoint: "https://ethereum-sepolia.publicnode.com"
+  ws_endpoint: "wss://ethereum-sepolia.publicnode.com"
+  chain_id: 11155111
+  network: "sepolia"
+
+  contract_addresses:
+    game_token: "0xCFF4475F8D171449899E983292c463314aBdF79c"
+    game_items: "0xa463FF5383ccAfd41D486662Cbae1BC0f0888178"
+    marketplace: "0xf8c608A454A19aC243C6285EA2FeBF2A6638a859"
+    # Sepolia official Uniswap V2
+    uniswap_v2_factory: "0xf62c03e08ada871a0beb309762e260a7a6a880e6"
+    uniswap_v2_router: "0xee567fe1712faf6149d80da1e6934e354124cfe3"
+    weth: "0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14"
+    uniswap_liquidity_setup: "0x3d58314c60e2f768a3Bb83eC0903B7b562951bDd"
+  
+  private_key: ""
+  gas_limit: 300000
+  gas_multiplier: 1.2
+  max_gas_price: "100000000000"  # 100 Gwei
+  min_gas_price: "1000000000"    # 1 Gwei
+  max_retries: 3
+  retry_delay: 1s
+  timeout: 30s
+
+jwt:
+  secret: "change-this-to-a-secure-random-string-in-production"
+  access_expiry: 24h
+  refresh_expiry: 168h  # 7 days
+  issuer: "gamenft"
+  audience: "gamenft-api"
+  refresh_token_size: 32
+
+log:
+  level: "info"
+  format: "json"
+  output: "stdout"
+  file: "./logs/gamenft.log"
+  max_size: 100
+  max_backups: 10
+  max_age: 30
+  compress: true
+
+cache:
+  default_ttl: 5m
+  user_ttl: 10m
+  items_ttl: 1m
+  market_stats_ttl: 2m
+  popular_items_ttl: 30s
+  enabled: true
+  prefix: "gamenft:"
+
+security:
+  https_only: false
+  trusted_proxies:
+    - "127.0.0.1"
+    - "::1"
+  content_security_policy: "default-src 'self'"
+  csp_nonce: true
+  hsts:
+    enabled: true
+    max_age: 31536000
+    include_subdomains: true
+    preload: false
+  jwt_blacklist_enabled: true

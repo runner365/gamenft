@@ -1,0 +1,50 @@
+# ===================
+# OS files
+# ===================
+.DS_Store
+Thumbs.db
+
+# ===================
+# IDE / Editor
+# ===================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ===================
+# Solidity / Foundry
+# ===================
+cache/
+out/
+
+# Ignores development broadcast logs
+!/broadcast
+/broadcast/*/31337/
+/broadcast/**/dry-run/
+
+
+# ===================
+# Environment
+# ===================
+.env
+.env.local
+.env.*.local
+
+# ===================
+# Golang
+# ===================
+gogamenft/gogamenft
+gogamenft/logs/gamenft.log
+gogamenft/etc/config.yaml
+
+# ===================
+# Node / Vue3 Frontend
+# ===================
+frontend/node_modules/
+frontend/dist/
+
+# for log
+*.log
+*.log*
