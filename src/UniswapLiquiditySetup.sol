@@ -49,7 +49,7 @@ contract UniswapLiquiditySetup is Ownable, ReentrancyGuard {
             amount,
             minTokenAmount,
             minETHAmount,
-            owner(),
+            msg.sender,
             block.timestamp + 600
         );
     }
@@ -84,7 +84,7 @@ contract UniswapLiquiditySetup is Ownable, ReentrancyGuard {
             liquidity,
             minTokenAmount,
             minETHAmount,
-            owner(),
+            msg.sender,
             block.timestamp + 600
         );
     }
